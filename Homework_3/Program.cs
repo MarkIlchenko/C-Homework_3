@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Homework_3.classes;
+
+Console.WriteLine("Hello, created project!");
+
+User user = new User("Mark", "Ilchenko", GenderType.Male, 2003);
+Console.WriteLine(user.ToString());
