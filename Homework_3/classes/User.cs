@@ -27,17 +27,17 @@ namespace Homework_3.classes
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("Значення не може бути порожнім або складатися з прогалин.");
+                    throw new ArgumentException("The value cannot be empty or contain spaces.");
                 }
 
                 if (!char.IsUpper(value[0])) // Перевірка на велику букву
                 {
-                    throw new ArgumentException("Ім'я має починатися з великої літери.");
+                    throw new ArgumentException("The name must start with a capital letter.");
                 }
 
                 if (value.Length < 2) // Перевірка на мінімальну довжину імені
                 {
-                    throw new ArgumentException("Ім'я має містити щонайменше дві літери.");
+                    throw new ArgumentException("The name must contain at least two letters.");
                 }
 
                 // Додаткові перевірки можуть бути додані тут
