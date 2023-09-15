@@ -24,5 +24,15 @@ namespace Homework_3.classes
             get => gender;
             set => gender = value;
         }
+
+        public User()
+        {
+
+        }
+
+        public User(int age)
+        {
+            Age = age;
+        }
     }
 }
