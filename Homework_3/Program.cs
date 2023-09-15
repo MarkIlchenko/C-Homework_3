@@ -8,17 +8,21 @@ try
 
     static GetMyGender GetGenderFromInput()
     {
-        Console.WriteLine("Please enter the gender (Male/Female):");
-        string genderInput = Console.ReadLine();
+        GetMyGender gender;
+        do
+        {
+            Console.WriteLine("Please enter the gender (Male/Female):");
+            string genderInput = Console.ReadLine();
 
-        if (Enum.TryParse(typeof(GetMyGender), genderInput, out object genderObject) && genderObject is GetMyGender validGender)
-        {
-            return validGender;
-        }
-        else
-        {
-            throw new ArgumentException("Invalid gender input.");
-        }
+            if (Enum.TryParse(typeof(GetMyGender), genderInput, out object genderObject) && genderObject is GetMyGender validGender)
+            {
+                return validGender;
+            }
+            else
+            {
+                Console.WriteLine("Invalid gender input. Please try again.");
+            }
+        } while (true);
     }
 
     try
@@ -32,16 +36,20 @@ try
 
     static int GetValidBirthYear()
     {
-        Console.WriteLine("Please enter your year of birth:");
+        int birthYear;
+        do
+        {
+            Console.WriteLine("Please enter your year of birth:");
 
-        if (int.TryParse(Console.ReadLine(), out int birthYear))
-        {
-            return birthYear;
-        }
-        else
-        {
-            throw new ArgumentException("The year of birth entered is invalid.");
-        }
+            if (int.TryParse(Console.ReadLine(), out birthYear))
+            {
+                return birthYear;
+            }
+            else
+            {
+                Console.WriteLine("The year of birth entered is invalid. Please try again.");
+            }
+        } while (true);
     }
 
     try
@@ -55,15 +63,21 @@ try
 
     static string GetValidFirstName()
     {
-        Console.WriteLine("Please enter the first name:");
-        string firstName = Console.ReadLine();
-
-        if (string.IsNullOrWhiteSpace(firstName) || !char.IsUpper(firstName[0]) || firstName.Length < 2)
+        string firstName;
+        do
         {
-            throw new ArgumentException("Invalid first name.");
-        }
+            Console.WriteLine("Please enter the first name:");
+            firstName = Console.ReadLine();
 
-        return firstName;
+            if (string.IsNullOrWhiteSpace(firstName) || !char.IsUpper(firstName[0]) || firstName.Length < 2)
+            {
+                Console.WriteLine("Invalid first name. Please try again.");
+            }
+            else
+            {
+                return firstName;
+            }
+        } while (true);
     }
 
     try
@@ -77,8 +91,16 @@ try
 
     static string GetValidLastName()
     {
-        Console.WriteLine("Please enter the last name:");
-        return Console.ReadLine();
+        do
+        {
+            Console.WriteLine("Please enter the last name:");
+            string lastName = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(lastName))
+            {
+                return lastName;
+            }
+            Console.WriteLine("Invalid last name. Please try again.");
+        } while (true);
     }
 
     user1.LastName = GetValidLastName();
