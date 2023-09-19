@@ -1,6 +1,6 @@
 ﻿using Homework_3.classes;
 using System;
-
+using System.Text.RegularExpressions;
 
 try
 {
@@ -69,7 +69,7 @@ try
             Console.WriteLine("Please enter the first name:");
             firstName = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(firstName) || !char.IsUpper(firstName[0]) || firstName.Length < 2)
+            if (string.IsNullOrWhiteSpace(firstName) || !Regex.IsMatch(firstName, "^[A-Z][a-zA-Z]*$"))
             {
                 Console.WriteLine("Invalid first name. Please try again.");
             }
